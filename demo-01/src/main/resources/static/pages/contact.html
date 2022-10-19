@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>STEP1</title>
+    <title>About</title>
     <style>
         /*根节点html字体大小*/
         html{
@@ -162,15 +162,18 @@
             <el-menu :default-active="activeBar" class="el-menu-demo"
                      mode="horizontal" @select="handleSelect" >
                 <el-menu-item index="1" onclick="location.href='index.html'">Home</el-menu-item>
-                <el-menu-item index="2" onclick="location.href='contact.html'">Contact Us</el-menu-item>
+                <el-menu-item index="2" onclick="location.href='contact.html'">About Us</el-menu-item>
             </el-menu>
         </el-header>
         <!--介绍信息-->
         <el-main style="font-size: 120%; font-family: Helvetica,sans-serif">
-            <em style="font-weight: bold; text-align: left">Welcome to BlastProject</em>
+            <em style="font-weight: bold; text-align: left">Welcome to MBIEP</em>
             <p style="text-align: justify">
                 In bioinformatics, BLAST (basic local alignment search tool)[2] is an algorithm and program for comparing primary biological sequence information, such as the amino-acid sequences of proteins or the nucleotides of DNA and/or RNA sequences. A BLAST search enables a researcher to compare a subject protein or nucleotide sequence (called a query) with a library or database of sequences, and identify database sequences that resemble the query sequence above a certain threshold. For example, following the discovery of a previously unknown gene in the mouse, a scientist will typically perform a BLAST search of the human genome to see if humans carry a similar gene; BLAST will identify sequences in the human genome that resemble the mouse gene based on similarity of sequence.
             </p>
+            <em>For further details</em>,
+            Please visit the following Open Access article about the algorithm:
+            <a urn="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-022-04868-8">A deep learning framework for identifying essential proteins based on multiple biological information</a>
         </el-main>
     </el-container>
 

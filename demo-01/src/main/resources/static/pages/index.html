@@ -18,9 +18,10 @@
         }
         /* 针对设备自适应自适应*/
         #app{
-            width: 106rem;
+            width: 106rem; /*106rem;*/
             margin: 0 auto;
             box-shadow: 2rem 2rem 1rem #888888;
+            background-color: #fff;
         }
         /* 手机 宽度小于768px的 */
         @media only screen and (max-width: 768px) {
@@ -70,9 +71,10 @@
         }
 
         .el-aside {
-            background-color: #b2c3d4;
+            background-color: #ffffff;
             color: #333;
             text-align: center;
+            margin-bottom: 4rem;
         }
 
         #el-form {
@@ -80,9 +82,15 @@
         }
 
         .el-main {
-            background-color: #d9d9d9;
+            background-color: #ffffff;
             color: #333;
             text-align: center;
+            border-style: dashed;
+            border-radius: 1rem;
+            border-color: #2db1be;
+            margin-bottom: 1rem;
+            margin-right: 5rem;
+            margin-left: 5rem;
         }
 
         /*设置导航栏的字体格式*/
@@ -100,34 +108,40 @@
         }
 
         /*走马灯设置*/
-        .el-carousel{
-            width: 48rem;
-            margin-left: 3rem;
+ /*       .el-carousel{
+            width:80rem;
+            height: 45rem;
             border-radius: 1rem;
         }
 
         .el-carousel__item h3 {
             color: #475669;
-            opacity: 0.9;
-            line-height: 13rem;
+            opacity: 0.3;
+            line-height: 6rem;
+            margin:0;
         }
 
         .el-carousel__item:nth-child(2n) {
+            width: 40rem;
+            height: 40rem;
+            background-repeat: no-repeat;
             border-radius: 1rem;
             background-image: url("../imgs/process.jpg");
-            background-size: 90%;
+            background-size: contain;
         }
 
         .el-carousel__item:nth-child(2n+1) {
+            width: 40rem;
+            height: 40rem;
+            background-repeat: no-repeat;
             border-radius: 1rem;
             background-image: url("../imgs/process2.jpg");
-            background-size: 90%;
-        }
+            background-size: 100%;
+        }*/
 
+        /*h3 标题设置*/
         .demo{
             font-size: 180%;
-            margin-top: 5%;
-            margin-bottom: 3%;
             color: #303133;
             font-family: Helvetica,sans-serif;
         }
@@ -145,6 +159,130 @@
         .el-container:nth-child(7) .el-aside {
             line-height: 50rem;
         }
+
+        /* 一个下一步button的css */ /*思路：放在el main 背景全透明*/
+        .nextDiv{
+            /*画圆*/
+            width: 100px ;
+            height: 100px;
+            background-color: #cbcbcb;
+            opacity: 0.7;
+            -webkit-border-radius:75px;
+            /*一些阴影样式*/
+            z-index: 999;
+            text-align: center;
+            box-shadow: 2rem 2rem 1rem #888888;
+            /*边缘颜色*/
+            border-style: solid;
+            border-color: #2db1be;
+            border-width: 1px;
+            /*属于页面居中*/
+            position: absolute;
+            top:70%;
+            left:75%;
+        }
+        /*字体的样式*/
+        .nextDiv>p{
+            font-family: "Comic Sans MS",serif;
+            font-size: 2rem;
+            padding-bottom: 1rem;
+            line-height:0;
+        }
+        /*图标的样式*/
+        .nextDiv>i{
+            font-size: 8rem;
+            font-weight: lighter;
+            color: #2db1be;
+            text-decoration: none;
+
+        }
+        /*hover变色+动画*/
+        .nextDiv:hover{
+            -webkit-animation: jello-horizontal 0.9s both;
+            animation: jello-horizontal 0.9s both;
+            background-color:#FFF;
+        }
+        /* hover 按钮动画*/
+        @-webkit-keyframes jello-horizontal {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+            65% {
+                -webkit-transform: scale3d(0.95, 1.05, 1);
+                transform: scale3d(0.95, 1.05, 1);
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, 0.95, 1);
+                transform: scale3d(1.05, 0.95, 1);
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+        @keyframes jello-horizontal {
+            0% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+            30% {
+                -webkit-transform: scale3d(1.25, 0.75, 1);
+                transform: scale3d(1.25, 0.75, 1);
+            }
+            40% {
+                -webkit-transform: scale3d(0.75, 1.25, 1);
+                transform: scale3d(0.75, 1.25, 1);
+            }
+            50% {
+                -webkit-transform: scale3d(1.15, 0.85, 1);
+                transform: scale3d(1.15, 0.85, 1);
+            }
+            65% {
+                -webkit-transform: scale3d(0.95, 1.05, 1);
+                transform: scale3d(0.95, 1.05, 1);
+            }
+            75% {
+                -webkit-transform: scale3d(1.05, 0.95, 1);
+                transform: scale3d(1.05, 0.95, 1);
+            }
+            100% {
+                -webkit-transform: scale3d(1, 1, 1);
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        /*上传成功小图标*/
+        /*未上传*/
+        .el-icon-document{
+            font-size: 3rem;
+            color: #666666;
+            margin-top: 2rem;
+        }
+        /*成功*/
+        .el-icon-document-checked{
+            font-size: 3rem;
+            color: #13ce66;
+            margin-top: 2rem;
+        }
+        /*上传，我希望字再大一点 框再粗一点*/
+       .el-upload{
+           border-width: 3px;
+       }
+
+
     </style>
 </head>
 <body>
@@ -166,8 +304,8 @@
         </el-header>
 
         <!--3 介绍语-->
-        <el-header style="height: 10rem;">
-            <p style="height: 5rem;">
+        <el-header style="height: 15rem;">
+            <p style="line-height: 2rem">
                 <em style="font-size: 2rem; color: #beff72;">Step1: Upload your data. </em> <i>Multi-Biological Information for Essential Proteins(MBIEP)</i> is a deep learning framework to predict essential proteins by integrating features obtained from the PPI network, subcellular localization, and gene expression profiles. In our model, the node2vec method is applied to learn continuous feature representations for proteins in the PPI network, which capture the diversity of connectivity patterns in the network. The concept of depthwise separable convolution is employed on gene expression profiles to extract properties and observe the trends of gene expression over time under different experimental conditions. Subcellular localization information is mapped into a long one-dimensional vector to capture its characteristics.
             </p>
         </el-header>
@@ -189,67 +327,144 @@
     </el-container>
 
     <el-container>
-            <el-main>
-            <!-- 一个走马灯流程 可以展示你们程序的过程-->
-                <span class="demonstration">
+            <el-main style="height: 50rem">
+            <!-- 一个走马灯流程 可以展示你们程序的过程 幻灯片不太好看-->
+                <h2 class="demo">WorkFlow of Model</h2>
+                <img src="../imgs/process.jpg" style="width: 75rem; height: 38rem"/>
+                <div style="font-size: 10rem;">
+                    <i class="el-icon-caret-right" @click="onRedirect"></i>
+                    <p>aaaaaa</p>
+                </div>
+              <!--  <span class="demonstration">
                     <h2 class="demo">Process of Model</h2>
                 </span>
                 <el-carousel indicator-position="outside">
                     <el-carousel-item v-for="item in 4" :key="item">
                         <h3 class="small">{{ item }}</h3>
                     </el-carousel-item>
-                </el-carousel>
+                </el-carousel>-->
             </el-main>
     </el-container>
 
     <el-container>
-            <el-main>
-            <div>
-                <!-- 功能提示 -->
-                <el-popover
-                        placement="top-start"
-                        title="请使用如下的文件格式"
-                        width="200"
-                        trigger="hover"
-                        content="123 123 123">
-                    <el-button slot="reference" style="margin-bottom: 5%;margin-top: 5%;">Upload FASTA Sequence</el-button>
-                </el-popover>
-                <!-- 测试使用地址：   action="https://jsonplaceholder.typicode.com/posts/"  -->
-                <!-- 运行使用地址 ： action="/common/uploadTrain"-->
-                <el-upload
-                        class="upload-demo"
-                        drag
-                        action="/common/uploadTrain"
-                        :on-success="handleUploadSuccess"
-                        :on-remove="handleRemove"
-                        :before-remove="beforeRemove"
-                        :before-upload="beforeUpload"
-                        :on-exceed="handleExceed"
-                        :file-list="fileList"
-                        :show-file-list="true"
-                        :limit="1"
-                        ref="upload">
-                    <i class="el-icon-upload"></i>
-                    <div class="el-upload__text">Drag your file here, or <em>click to upload</em></div>
-                    <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
-                </el-upload>
-                <span>
-                    <el-button  style="margin:3rem 3rem 3rem 3rem" type="primary" @click="onRedirect">Next Step</el-button>
-                 </span>
-            </div>
-            </el-main>
 
+
+            <el-aside width="33%">
+                <div class="uploadDiv">
+                    <!-- 功能提示 -->
+                    <el-popover
+                            placement="top-start"
+                            title="请使用如下的文件格式"
+                            width="200"
+                            trigger="hover"
+                            content="123 123 123">
+                        <el-button slot="reference" style="margin-bottom: 5%;margin-top: 5%;background-color: #2db1be; color: #FFF">Upload Network Features</el-button>
+                    </el-popover>
+                    <!-- 测试使用地址：   action="https://jsonplaceholder.typicode.com/posts/"  -->
+                    <!-- 运行使用地址 ： action="/common/uploadTrain"-->
+                    <el-upload
+                            class="upload-demo"
+                            drag
+                            action="/common/uploadTrain"
+                            :on-success="handleUploadSuccess"
+                            :on-remove="handleRemove"
+                            :before-remove="beforeRemove"
+                            :before-upload="beforeUpload"
+                            :on-exceed="handleExceed"
+                            :file-list="fileList"
+                            :show-file-list="true"
+                            :limit="1"
+                            ref="upload">
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">Drag your file here, or <em>click to upload</em></div>
+                        <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
+                    </el-upload>
+                </div>
+            </el-aside>
+
+            <el-aside width="33%">
+                <div>
+                    <!-- 功能提示 -->
+                    <el-popover
+                            placement="top-start"
+                            title="请使用如下的文件格式"
+                            width="200"
+                            trigger="hover"
+                            content="123 123 123">
+                        <el-button slot="reference" style="margin-bottom: 5%;margin-top: 5%;background-color: #2db1be; color: #FFF">Upload Gene Expression Features</el-button>
+                    </el-popover>
+                    <!-- 测试使用地址：   action="https://jsonplaceholder.typicode.com/posts/"  -->
+                    <!-- 运行使用地址 ： action="/common/uploadTrain"-->
+                    <el-upload
+                            class="upload-demo"
+                            drag
+                            action="/common/uploadTrain"
+                            :on-success="handleUploadSuccess"
+                            :on-remove="handleRemove"
+                            :before-remove="beforeRemove"
+                            :before-upload="beforeUpload"
+                            :on-exceed="handleExceed"
+                            :file-list="fileList"
+                            :show-file-list="true"
+                            :limit="1"
+                            ref="upload">
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">Drag your file here, or <em>click to upload</em></div>
+                        <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
+                    </el-upload>
+                </div>
+                <i  id="upload_success2" class="el-icon-document"></i>
+            </el-aside>
+
+
+            <el-aside width="33%">
+                <div>
+                    <!-- 功能提示 -->
+                    <el-popover
+                            placement="top-start"
+                            title="请使用如下的文件格式"
+                            width="200"
+                            trigger="hover"
+                            content="123 123 123">
+                        <el-button slot="reference" style="margin-bottom: 5%;margin-top: 5%; background-color: #2db1be; color: #FFF">Upload Subcellular Localization Features</el-button>
+                    </el-popover>
+                    <!-- 测试使用地址：   action="https://jsonplaceholder.typicode.com/posts/"  -->
+                    <!-- 运行使用地址 ： action="/common/uploadTrain"-->
+                    <el-upload
+                            class="upload-demo"
+                            drag
+                            action="/common/uploadTrain"
+                            :on-success="handleUploadSuccess"
+                            :on-remove="handleRemove"
+                            :before-remove="beforeRemove"
+                            :before-upload="beforeUpload"
+                            :on-exceed="handleExceed"
+                            :file-list="fileList"
+                            :show-file-list="true"
+                            :limit="1"
+                            ref="upload">
+                        <i class="el-icon-upload"></i>
+                        <div class="el-upload__text">Drag your file here, or <em>click to upload</em></div>
+                        <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
+                    </el-upload>
+                </div>
+            </el-aside>
     </el-container>
+    <div class="nextDiv">
+        <i class="el-icon-caret-right" @click="onRedirect"></i>
+        <p>NEXT</p>
+    </div>
+
     <!--页脚-->
     <el-footer style="height: 120%;">
         <div>
-            &nbsp;&nbsp;&nbsp;&nbsp;XXX, Professor
+            &nbsp;&nbsp;&nbsp;&nbsp;Developed By Chen Ye
             <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;State Key Laboratory of Tea Plant Biology and Utilization
+        &nbsp;&nbsp;&nbsp;&nbsp;    Anhui Provincial Engineering Laboratory for Beidou Precision Agriculture Information
             <br>
-            Anhui Agricultural University, Hefei 230036, China.
+                Anhui Agricultural University, Hefei 230036, China.
             <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;Email: yechen@ahau.edu.cn
+            &nbsp;&nbsp;&nbsp;&nbsp;Email: hastingsvol@163.com
             <br>
             &nbsp;&nbsp;&nbsp;&nbsp;Tel/Fax: +86 (0551)888 8888
         </div>
@@ -325,6 +540,7 @@
             // 上传成功提示
             handleUploadSuccess(){
                 this.$message.success("Upload Successfully");
+                document.getElementById("upload_success2").class = "el-icon-document-checked"
                 this.activeStep = 1;
             },
             // 网页跳转

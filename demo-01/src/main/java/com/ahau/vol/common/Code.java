@@ -1,5 +1,6 @@
 package com.ahau.vol.common;
 
+
 public class Code {
     // 上传相关
     public final static Integer UPLOAD_OK = 20011;
