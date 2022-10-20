@@ -9,6 +9,7 @@
         html{
             font-size:12px
         }
+        /*body设置min和max大小*/
         body {
             background-color: #f7f6f2 ; /*#f7f6f2  #d5d5d5*/
             /* 针对web元素塌陷*/
@@ -48,6 +49,7 @@
             }
         }
 
+        /* 页首、页脚的设置 line-height设置文字间距*/
         .el-header, .el-footer {
             background-color: #2db1be;
             color: #333;
@@ -55,14 +57,14 @@
             line-height: 2rem;
         }
 
-        /* 设置页头下元素属性*/
+        /* 设置页首下p元素属性*/
         .el-header > p {
             font-size: 140%;
             color: whitesmoke;
             font-family: Calibri, sans-serif
         }
 
-        /* 设置页脚下元素属性*/
+        /* 设置页脚下div元素属性*/
         .el-footer > div {
             font-size: 140%;
             color: whitesmoke;
@@ -70,17 +72,19 @@
             text-align: center;
         }
 
+        /* 设置侧栏aside属性*/
         .el-aside {
             background-color: #ffffff;
             color: #333;
             text-align: center;
+            /*下面留白点 给icon*/
             margin-bottom: 4rem;
         }
-
+        /* el表单属性*/
         #el-form {
             margin-left: 0;
         }
-
+        /*el主题属性，加一个边框*/
         .el-main {
             background-color: #ffffff;
             color: #333;
@@ -107,90 +111,45 @@
             font-weight: bold;
         }
 
-        /*走马灯设置*/
- /*       .el-carousel{
-            width:80rem;
-            height: 45rem;
-            border-radius: 1rem;
-        }
-
-        .el-carousel__item h3 {
-            color: #475669;
-            opacity: 0.3;
-            line-height: 6rem;
-            margin:0;
-        }
-
-        .el-carousel__item:nth-child(2n) {
-            width: 40rem;
-            height: 40rem;
-            background-repeat: no-repeat;
-            border-radius: 1rem;
-            background-image: url("../imgs/process.jpg");
-            background-size: contain;
-        }
-
-        .el-carousel__item:nth-child(2n+1) {
-            width: 40rem;
-            height: 40rem;
-            background-repeat: no-repeat;
-            border-radius: 1rem;
-            background-image: url("../imgs/process2.jpg");
-            background-size: 100%;
-        }*/
-
-        /*h3 标题设置*/
+        /* 中间图片对应的 h3 标题设置*/
         .demo{
             font-size: 180%;
             color: #303133;
             font-family: Helvetica,sans-serif;
         }
 
-        /*ele container setting*/
-        body > .el-container {
-            margin-bottom: 5rem;
-        }
-
-        .el-container:nth-child(5) .el-aside,
-        .el-container:nth-child(6) .el-aside {
-            line-height: 30rem;
-        }
-
-        .el-container:nth-child(7) .el-aside {
-            line-height: 50rem;
-        }
-
-        /* 一个下一步button的css */ /*思路：放在el main 背景全透明*/
+        /* 下一步的button设置*/
         .nextDiv{
             /*画圆*/
-            width: 100px ;
-            height: 100px;
-            background-color: #cbcbcb;
-            opacity: 0.7;
-            -webkit-border-radius:75px;
+            width: 80px ;
+            height:80px;
+            background-color: #cbdcdc;
+            opacity: 0.6;
+            -webkit-border-radius:40px;
             /*一些阴影样式*/
             z-index: 999;
             text-align: center;
-            box-shadow: 2rem 2rem 1rem #888888;
+            box-shadow: 1rem 1rem 1rem #9c9c9c;
             /*边缘颜色*/
             border-style: solid;
             border-color: #2db1be;
-            border-width: 1px;
+            border-width: 2px;
             /*属于页面居中*/
-            position: absolute;
-            top:70%;
-            left:75%;
+            position: relative;
+            top: 40%;
+            left: 10%;
         }
-        /*字体的样式*/
+        /*div下字体的样式*/
         .nextDiv>p{
             font-family: "Comic Sans MS",serif;
             font-size: 2rem;
+            font-weight: bold;;
             padding-bottom: 1rem;
             line-height:0;
         }
-        /*图标的样式*/
+        /*div下图标的样式*/
         .nextDiv>i{
-            font-size: 8rem;
+            font-size: 7rem;
             font-weight: lighter;
             color: #2db1be;
             text-decoration: none;
@@ -277,11 +236,20 @@
             color: #13ce66;
             margin-top: 2rem;
         }
-        /*上传，我希望字再大一点 框再粗一点*/
-       .el-upload{
-           border-width: 3px;
-       }
 
+        /*ele container setting 参考elementUI官网*/
+        body > .el-container {
+            margin-bottom: 5rem;
+        }
+
+        .el-container:nth-child(5) .el-aside,
+        .el-container:nth-child(6) .el-aside {
+            line-height: 30rem;
+        }
+
+        .el-container:nth-child(7) .el-aside {
+            line-height: 50rem;
+        }
 
     </style>
 </head>
@@ -289,66 +257,60 @@
 <div id="app">
     <!--General Part-->
     <!--使用container布局-->
-    <el-container>
-        <!--1 页头 图标-->
-        <img src="../imgs/MyProjectHeader.jpg" alt="heads" width="100%"/>
+        <el-container>
+            <!--1 页头 图标-->
+            <img src="../imgs/MyProjectHeader.jpg" alt="heads" width="100%"/>
+            <!--2 导航栏-->
+            <el-header style="background-color: white">
+                <!-- :default-active v-bind为html属性绑定值，代表当前激活的bar索引-->
+                <el-menu :default-active="activeBar" class="el-menu-demo"
+                         mode="horizontal" @select="handleSelect">
+                    <el-menu-item index="1" onclick="document.location.href='index.html'">Home</el-menu-item>
+                    <el-menu-item index="4" onclick="document.location.href='contact.html'">Contact Us</el-menu-item>
+                </el-menu>
+            </el-header>
+            <!--3 介绍语-->
+            <el-header style="height: 15rem;">
+                <p style="line-height: 2rem">
+                    <em style="font-size: 2rem; color: #beff72;">Step1: Upload your data. </em> <i>Multi-Biological Information for Essential Proteins(MBIEP)</i> is a deep learning framework to predict essential proteins by integrating features obtained from the PPI network, subcellular localization, and gene expression profiles. In our model, the node2vec method is applied to learn continuous feature representations for proteins in the PPI network, which capture the diversity of connectivity patterns in the network. The concept of depthwise separable convolution is employed on gene expression profiles to extract properties and observe the trends of gene expression over time under different experimental conditions. Subcellular localization information is mapped into a long one-dimensional vector to capture its characteristics.
+                </p>
+            </el-header>
+            <!--4 进度条-->
+            <el-header style="background: white; height: 140%">
+                <!--:active v-bind绑定的属性 显示目前进度索引-->
+                <el-steps :active="activeStep" align-center style="padding-top: 2rem; padding-bottom: 2rem">
+                    <el-step title="Step 1 Upload" icon="el-icon-upload"
+                             description="upload your file"></el-step>
+                    <el-step title="Step 2 Setting" icon="el-icon-edit"
+                             description="Set the parameters of the program"></el-step>
+                    <el-step title="Step 3 Tuning" icon="el-icon-refresh-right"
+                             description="Repeatedly adjust fine tuning"></el-step>
+                    <el-step title="Step 4 Download" icon="el-icon-download"
+                             description="Download the required files"></el-step>
+                </el-steps>
+            </el-header>
+        </el-container>
 
-        <!--2 导航栏-->
-        <el-header style="background-color: white">
-            <!-- :default-active v-bind为html属性绑定值，代表当前激活的bar索引-->
-            <el-menu :default-active="activeBar" class="el-menu-demo"
-                     mode="horizontal" @select="handleSelect">
-                <el-menu-item index="1" onclick="document.location.href='index.html'">Home</el-menu-item>
-                <el-menu-item index="4" onclick="document.location.href='contact.html'">Contact Us</el-menu-item>
-            </el-menu>
-        </el-header>
-
-        <!--3 介绍语-->
-        <el-header style="height: 15rem;">
-            <p style="line-height: 2rem">
-                <em style="font-size: 2rem; color: #beff72;">Step1: Upload your data. </em> <i>Multi-Biological Information for Essential Proteins(MBIEP)</i> is a deep learning framework to predict essential proteins by integrating features obtained from the PPI network, subcellular localization, and gene expression profiles. In our model, the node2vec method is applied to learn continuous feature representations for proteins in the PPI network, which capture the diversity of connectivity patterns in the network. The concept of depthwise separable convolution is employed on gene expression profiles to extract properties and observe the trends of gene expression over time under different experimental conditions. Subcellular localization information is mapped into a long one-dimensional vector to capture its characteristics.
-            </p>
-        </el-header>
-
-        <!--4 进度条-->
-        <el-header style="background: white; height: 140%">
-            <!--:active v-bind绑定的属性 显示目前进度索引-->
-            <el-steps :active="activeStep" align-center style="padding-top: 2rem; padding-bottom: 2rem">
-                <el-step title="Step 1 Upload" icon="el-icon-upload"
-                         description="upload your file"></el-step>
-                <el-step title="Step 2 Setting" icon="el-icon-edit"
-                         description="Set the parameters of the program"></el-step>
-                <el-step title="Step 3 Tuning" icon="el-icon-refresh-right"
-                         description="Repeatedly adjust fine tuning"></el-step>
-                <el-step title="Step 4 Download" icon="el-icon-download"
-                         description="Download the required files"></el-step>
-            </el-steps>
-        </el-header>
-    </el-container>
-
-    <el-container>
-            <el-main style="height: 50rem">
-            <!-- 一个走马灯流程 可以展示你们程序的过程 幻灯片不太好看-->
-                <h2 class="demo">WorkFlow of Model</h2>
+        <el-container>
+            <!--存放前后进退按钮-->
+            <el-aside width="10%" style="background-color: #ffffff; margin: 0">
+            </el-aside>
+            <!--存放模型工作流程-->
+            <el-main style="height: 50rem; margin: 0">
+                <h2 class="demo">WorkFlow of the Model</h2>
                 <img src="../imgs/process.jpg" style="width: 75rem; height: 38rem"/>
-                <div style="font-size: 10rem;">
-                    <i class="el-icon-caret-right" @click="onRedirect"></i>
-                    <p>aaaaaa</p>
-                </div>
-              <!--  <span class="demonstration">
-                    <h2 class="demo">Process of Model</h2>
-                </span>
-                <el-carousel indicator-position="outside">
-                    <el-carousel-item v-for="item in 4" :key="item">
-                        <h3 class="small">{{ item }}</h3>
-                    </el-carousel-item>
-                </el-carousel>-->
             </el-main>
-    </el-container>
+            <!--存放前后进退按钮-->
+            <el-aside width="10%" style="background-color: #ffffff">
+                <div class="nextDiv">
+                    <i class="el-icon-caret-right" @click="onRedirect"></i>
+                    <p>NEXT</p>
+                </div>
+            </el-aside>
+        </el-container>
 
-    <el-container>
-
-
+        <!--上传部分-->
+        <el-container>
             <el-aside width="33%">
                 <div class="uploadDiv">
                     <!-- 功能提示 -->
@@ -380,6 +342,7 @@
                         <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
                     </el-upload>
                 </div>
+                <i  id="upload_success1" class="el-icon-document"></i>
             </el-aside>
 
             <el-aside width="33%">
@@ -416,7 +379,6 @@
                 <i  id="upload_success2" class="el-icon-document"></i>
             </el-aside>
 
-
             <el-aside width="33%">
                 <div>
                     <!-- 功能提示 -->
@@ -448,37 +410,33 @@
                         <div class="el-upload__tip" slot="tip">FASTA sequence file only, limited 2MB</div>
                     </el-upload>
                 </div>
+                <i  id="upload_success3" class="el-icon-document"></i>
             </el-aside>
-    </el-container>
-    <div class="nextDiv">
-        <i class="el-icon-caret-right" @click="onRedirect"></i>
-        <p>NEXT</p>
-    </div>
+        </el-container>
 
-    <!--页脚-->
-    <el-footer style="height: 120%;">
-        <div>
-            &nbsp;&nbsp;&nbsp;&nbsp;Developed By Chen Ye
-            <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;    Anhui Provincial Engineering Laboratory for Beidou Precision Agriculture Information
-            <br>
+        <!--页脚-->
+        <el-footer style="height: 120%;">
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;Developed By Chen Ye
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;    Anhui Provincial Engineering Laboratory for Beidou Precision Agriculture Information
+                <br>
                 Anhui Agricultural University, Hefei 230036, China.
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;Email: hastingsvol@163.com
-            <br>
-            &nbsp;&nbsp;&nbsp;&nbsp;Tel/Fax: +86 (0551)888 8888
-        </div>
-    </el-footer>
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Email: hastingsvol@163.com
+                <br>
+                &nbsp;&nbsp;&nbsp;&nbsp;Tel/Fax: +86 (0551)888 8888
+            </div>
+        </el-footer>
 </div>
-
-
 </body>
+
 <!-- 引入组件库 -->
 <script src="../js/vue.js"></script>
 <script src="../element-ui/lib/index.js"></script>
 <link rel="stylesheet" href="../element-ui/lib/theme-chalk/index.css">
 <script src="../js/axios-0.18.0.js"></script>
-
+<!--js代码部分 TODO：把三个上传对应的后端逻辑写以下-->
 <script>
     new Vue({
         el: `#app`,
